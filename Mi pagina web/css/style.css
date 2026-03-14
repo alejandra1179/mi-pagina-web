@@ -73,20 +73,23 @@ h2 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- 4. GRID DE PRODUCTOS (TAMAÑO CONTROLADO Y UNIFORME) --- */
+/* --- 4. GRID DE PRODUCTOS (FORZADO A 3 COLUMNAS) --- */
 .contenedor-grid {
     display: grid;
-    /* Esto crea columnas de máximo 220px, centradas */
-    grid-template-columns: repeat(auto-fit, 220px); 
-    gap: 20px;
-    justify-content: center; /* Centra las tarjetas en la pantalla */
+    /* Cambiamos auto-fit por repeat(3, 1fr) para forzar las 3 columnas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Aumenté un poco el espacio para que respiren */
+    justify-items: center; /* Centra las tarjetas dentro de su celda */
     padding: 20px;
+    max-width: 1000px; /* Limitamos el ancho total para que no se estiren demasiado */
+    margin: 0 auto;    /* Centra todo el bloque del catálogo */
 }
 
 .tarjeta-producto {
     background: white;
-    width: 220px; /* Ancho fijo para todas */
-    height: 380px; /* Alto fijo para todas */
+    width: 100%;      /* Ahora el ancho es flexible según la columna */
+    max-width: 280px; /* Pero no dejará que crezca más de esto para no verse gigante */
+    height: 400px;    /* Un poquito más de alto para que el contenido no se amontone */
     padding: 15px;
     border-radius: 12px;
     text-align: center;
@@ -95,10 +98,6 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
-}
-
-.tarjeta-producto:hover {
-    transform: translateY(-5px);
 }
 
 .tarjeta-producto img {
@@ -147,7 +146,7 @@ h2 {
 /* ESTO VA AL FINAL DE TU ARCHIVO CSS */
 
 header.banner-principal {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/campo\ frutas.avif') !important;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/campo-frutas.avif.avif') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
